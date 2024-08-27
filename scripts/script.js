@@ -54,10 +54,15 @@ function initiateCowMovement() {
     drawCow();  // Draw the cow at the initial position
 
     let moveStart = Date.now();
+    let pieDropped = false;  // Track whether the cowpie has been dropped
     let moveInterval = setInterval(() => {
         if (Date.now() - moveStart > maxTime) {
             clearInterval(moveInterval);
-            endGame();
+            if (!pieDropped) {
+                dropCowPie();  // Ensure cowpie drops if it hasn't already
+            } else {
+                endGame();
+            }
             return;
         }
 
@@ -75,9 +80,9 @@ function initiateCowMovement() {
         cowPreviousMove = move;
         drawCow();  // Redraw the cow at the new position
 
-        // Cow drops a pie after 25% of the game time
-        if (Date.now() - moveStart > maxTime * 0.25 && Math.random() < 0.01) {
-            clearInterval(moveInterval);
+        // Drop the cowpie at a defined portion of the game time
+        if (!pieDropped && Date.now() - moveStart > maxTime * 0.25) {
+            pieDropped = true;
             dropCowPie();
         }
         
