@@ -70,7 +70,16 @@ function getRandomMove() {
 }
 
 function drawCow() {
-    document.getElementById('pasture').innerHTML = `<circle cx="${cowPosition.x * 10 + 5}" cy="${cowPosition.y * 10 + 5}" r="2" fill="white" stroke="black" stroke-width="1" />`;
+    document.getElementById('pasture').innerHTML = `<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <path d="M ${cowPosition.x * 10 + 5},${cowPosition.y * 10 + 5}
+           c 5,-5 10,-5 15,0
+           c 5,5 0,10 -5,10
+           l -5,10
+           l -10,0
+           l -5,-10
+           c -5,-5 0,-10 5,-10"
+        fill="white" stroke="black" stroke-width="1"/>
+</svg>`;
 }
 
 function dropCowPie() {
