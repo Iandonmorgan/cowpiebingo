@@ -81,7 +81,7 @@ body {
     height: 100vh; /* Take up full viewport height */
     width: 100vw; /* Take up full viewport width */
     position: relative; /* Allows for absolute positioning of the status text */
-    background-color: #e5e5e5; /* Slightly different background to distinguish game area */
+    background-color: lightgreen; /* Slightly different background to distinguish game area */
 }
 
 #pasture {
