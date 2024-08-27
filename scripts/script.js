@@ -1,13 +1,13 @@
 // Cow Pie Bingo was created on an iPad.
 
-console.log("Get ready for some Cow Pie Bingo!")
+console.log("Get ready for some Cow Pie Bingo!");
 
 let players = [];
 let numPlayers;
 let maxTime;
 let gridSize = 10; // Define the grid size (10x10 for simplicity)
 let cowPosition = { x: 0, y: 0 };
-let cowPreviousMove = 'stay';
+let cowPreviousMove = 'stay';  // Initialize with a default move
 let cowTimeout;
 
 function startGame() {
@@ -76,8 +76,8 @@ function drawCow() {
         // If the cow SVG does not exist, create and add it
         svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svgElement.setAttribute("id", "cow-svg");
-        svgElement.setAttribute("width", "50");
-        svgElement.setAttribute("height", "50");
+        svgElement.setAttribute("width", "10");
+        svgElement.setAttribute("height", "10");
         svgElement.setAttribute("xmlns", "http://www.w3.org/2000/svg");
         document.getElementById('pasture').appendChild(svgElement);
     }
