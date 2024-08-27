@@ -16,7 +16,27 @@ function startGame() {
     setupPlayers();
     document.getElementById('setup').style.display = 'none';
     document.getElementById('game').style.display = 'block';
+    
+    startCountdown(maxTime); // Start the countdown timer
+
     initiateCowMovement();
+}
+
+function startCountdown(time) {
+    const timerElement = document.getElementById('timer');
+    let timeLeft = time / 1000; // Convert milliseconds to seconds
+
+    const countdownInterval = setInterval(() => {
+        timerElement.innerHTML = `Time Left: ${timeLeft} seconds`;
+        
+        if (timeLeft <= 0) {
+            clearInterval(countdownInterval);
+            timerElement.innerHTML = 'Time is up!';
+            endGame();
+        }
+        
+        timeLeft--;
+    }, 1000); // Update every second
 }
 
 function setupPlayers() {

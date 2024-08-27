@@ -92,6 +92,18 @@ body {
     margin: auto; /* Center the SVG within the container */
 }
 
+#timer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2rem;
+    color: #333; /* A subtle color to match your theme */
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 20; /* Ensure it's above other elements */
+}
+
 /* Pop-up style text */
 #status {
     position: absolute;
