@@ -66,31 +66,36 @@ body {
     background-color: #557c3e; /* Darker green on hover */
 }
 
-/* button {
-    padding: 10px 20px;
-    background-color: #555555;
-    color: #FFFFFF;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
+/* Flexbox container for the game */
+#game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Take up full viewport height */
+    width: 100vw; /* Take up full viewport width */
+    position: relative; /* Allows for absolute positioning of the status text */
+    background-color: #e5e5e5; /* Slightly different background to distinguish game area */
 }
 
-button:hover {
-    background-color: #777777;
-}
-
-svg {
-    width: 100%;
-    height: auto;
-}
-
+/* SVG Pasture should be responsive */
 #pasture {
-    background: #9ACD32;
-    border: 2px solid #8B4513;
+    width: 100%; /* Make the SVG scale with the screen */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Ensure SVG doesn't overflow */
 }
 
+/* Pop-up style text */
 #status {
-    font-size: 20px;
-    margin-top: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem; /* Large font size for pop-up effect */
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    display: none; /* Initially hidden */
+    z-index: 10;
 }
-*/
