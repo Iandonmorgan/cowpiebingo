@@ -7,7 +7,7 @@ let numPlayers;
 let maxTime;
 let gridSize = 10; // Define the grid size (10x10 for simplicity)
 let cowPosition = { x: 0, y: 0 };
-let cowPreviousMove = null;
+let cowPreviousMove = 'stay';
 let cowTimeout;
 
 function startGame() {
@@ -42,7 +42,7 @@ function initiateCowMovement() {
         }
 
         let moveChance = Math.random();
-        let move = moveChance < 0.3 ? cowPreviousMove : getRandomMove();
+        let move = moveChance < 0.2 ? cowPreviousMove : getRandomMove();
         
         switch (move) {
             case 'up': cowPosition.y = Math.max(0, cowPosition.y - 1); break;
