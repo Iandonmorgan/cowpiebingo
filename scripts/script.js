@@ -70,15 +70,27 @@ function getRandomMove() {
 }
 
 function drawCow() {
-    document.getElementById('pasture').innerHTML = `<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
-  <path d="M ${cowPosition.x * 10 + 5},${cowPosition.y * 10 + 5}
-           c 5,-5 10,-5 15,0
-           c 5,5 0,10 -5,10
-           l -5,10
-           l -10,0
-           l -5,-10
-           c -5,-5 0,-10 5,-10"
-        fill="white" stroke="black" stroke-width="1"/>
+    document.getElementById('pasture').innerHTML = `<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <!-- Cow body -->
+  <ellipse cx="25" cy="30" rx="12" ry="8" fill="white" stroke="black" stroke-width="1.5" />
+
+  <!-- Cow head -->
+  <circle cx="25" cy="15" r="6" fill="white" stroke="black" stroke-width="1.5" />
+
+  <!-- Cow ears -->
+  <ellipse cx="18" cy="12" rx="3" ry="2" fill="white" stroke="black" stroke-width="1.5" />
+  <ellipse cx="32" cy="12" rx="3" ry="2" fill="white" stroke="black" stroke-width="1.5" />
+
+  <!-- Cow eyes -->
+  <circle cx="22" cy="14" r="1" fill="black" />
+  <circle cx="28" cy="14" r="1" fill="black" />
+
+  <!-- Cow nose -->
+  <ellipse cx="25" cy="18" rx="3" ry="1.5" fill="pink" stroke="black" stroke-width="1" />
+
+  <!-- Cow legs -->
+  <rect x="18" y="38" width="3" height="7" fill="black" />
+  <rect x="29" y="38" width="3" height="7" fill="black" />
 </svg>`;
 }
 
