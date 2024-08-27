@@ -31,8 +31,8 @@ function setupPlayers() {
 
 function initiateCowMovement() {
     cowPosition = { x: Math.floor(Math.random() * gridSize), y: Math.floor(Math.random() * gridSize) };
-    document.getElementById('pasture').innerHTML = `<circle cx="${cowPosition.x * 10 + 5}" cy="${cowPosition.y * 10 + 5}" r="2" fill="white" stroke="black" stroke-width="1" />`;
-    
+    drawCow();  // Draw the cow at the initial position
+
     let moveStart = Date.now();
     let moveInterval = setInterval(() => {
         if (Date.now() - moveStart > maxTime) {
@@ -53,7 +53,7 @@ function initiateCowMovement() {
         }
 
         cowPreviousMove = move;
-        drawCow();
+        drawCow();  // Redraw the cow at the new position
 
         // Cow drops a pie after 25% of the game time
         if (Date.now() - moveStart > maxTime * 0.25 && Math.random() < 0.01) {
@@ -70,7 +70,7 @@ function getRandomMove() {
 }
 
 function drawCow() {
-    document.getElementById('pasture').innerHTML = `<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+    document.getElementById('pasture').innerHTML = `<svg width="10" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" style="position: absolute; top: ${cowPosition.y * 10}px; left: ${cowPosition.x * 10}px;">
   <!-- Cow body -->
   <ellipse cx="25" cy="30" rx="12" ry="8" fill="white" stroke="black" stroke-width="1.5" />
 
