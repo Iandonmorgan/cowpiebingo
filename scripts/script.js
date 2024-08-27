@@ -22,8 +22,8 @@ function startGame() {
 function setupPlayers() {
     players = [];
     for (let i = 0; i < numPlayers; i++) {
-        let initials = prompt(`Enter initials for player ${i + 1}`);
-        players.push({ initials: initials, square: i });
+        let playerName = prompt(`Enter name for player ${i + 1}`);
+        players.push({ playerName: playerName, square: i });
     }
     // Divide the pasture into a grid and assign squares to players
     // You can implement a visual representation of this if needed
@@ -76,10 +76,10 @@ function drawCow() {
         // If the cow SVG does not exist, create and add it
         svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svgElement.setAttribute("id", "cow-svg");
-        svgElement.setAttribute("width", "50");
-        svgElement.setAttribute("height", "50");
+        svgElement.setAttribute("width", "10px");
+        svgElement.setAttribute("height", "10px");
         svgElement.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-        svgElement.setAttribute("style", `position: absolute; top: ${cowPosition.y * 50}px; left: ${cowPosition.x * 50}px;`);
+        svgElement.setAttribute("style", `position: absolute; top: ${cowPosition.y * 10}px; left: ${cowPosition.x * 10}px;`);
         document.getElementById('pasture').appendChild(svgElement);
     }
     
@@ -106,7 +106,7 @@ function drawCow() {
         <rect x="29" y="38" width="3" height="7" fill="black" />
     `;
     
-    svgElement.setAttribute("style", `position: absolute; top: ${cowPosition.y * 50}px; left: ${cowPosition.x * 50}px;`);
+    svgElement.setAttribute("style", `position: absolute; top: ${cowPosition.y * 10}px; left: ${cowPosition.x * 10}px;`);
 }
 
 function dropCowPie() {
@@ -146,8 +146,8 @@ function dropCowPie() {
     // Determine the winner based on the cow's position
     let winner = players.find(player => player.square === (cowPosition.y * gridSize + cowPosition.x) % numPlayers);
 
-    // Display the winner's initials in the overlay
-    document.getElementById('status').innerText = winner ? `Ohh CRAP - ${winner.initials} Wins!` : 'No winner!';
+    // Display the winner's name in the overlay
+    document.getElementById('status').innerText = winner ? `Ohh CRAP - ${winner.playerName} Wins!` : 'No winner!';
 
     // Show the status div
     document.getElementById('status').style.display = 'block';
