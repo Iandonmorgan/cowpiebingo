@@ -90,15 +90,7 @@ body {
     max-width: 90vw; /* Maximum width as 90% of the viewport width */
     max-height: 90vh; /* Maximum height as 90% of the viewport height */
     margin: auto; /* Center the SVG within the container */
-}
-
-/* SVG Pasture should be responsive */
-#greenpasture {
-    width: 100%; /* Make the SVG fill the available width */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 90vw; /* Maximum width as 90% of the viewport width */
-    max-height: 90vh; /* Maximum height as 90% of the viewport height */
-    margin: auto; /* Center the SVG within the container */
+    background-color: lightgreen;
 }
 
 /* Pop-up style text */
