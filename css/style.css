@@ -79,9 +79,11 @@ body {
 
 /* SVG Pasture should be responsive */
 #pasture {
-    width: 100%; /* Make the SVG scale with the screen */
+    width: 100%; /* Make the SVG fill the available width */
     height: auto; /* Maintain aspect ratio */
-    max-width: 100%; /* Ensure SVG doesn't overflow */
+    max-width: 90vw; /* Maximum width as 90% of the viewport width */
+    max-height: 90vh; /* Maximum height as 90% of the viewport height */
+    margin: auto; /* Center the SVG within the container */
 }
 
 /* Pop-up style text */
