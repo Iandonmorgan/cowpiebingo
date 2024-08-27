@@ -95,8 +95,44 @@ function drawCow() {
 }
 
 function dropCowPie() {
-    document.getElementById('pasture').innerHTML += `<circle cx="${cowPosition.x * 10 + 5}" cy="${cowPosition.y * 10 + 5}" r="3" fill="brown" />`;
-    document.getElementById('status').innerText = 'Cow dropped a pie! Game over!';
+    // Add cow pie to the pasture
+    document.getElementById('pasture').innerHTML += `<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <!-- Poop Emoji Base -->
+  <path d="M25,10
+           C20,10 15,15 15,20
+           C15,25 20,30 25,30
+           C30,30 35,25 35,20
+           C35,15 30,10 25,10
+           Z"
+        fill="brown" stroke="black" stroke-width="1" />
+  
+  <!-- Top Part -->
+  <path d="M25,5
+           C20,5 15,10 15,15
+           C15,20 20,25 25,25
+           C30,25 35,20 35,15
+           C35,10 30,5 25,5
+           Z"
+        fill="saddlebrown" stroke="black" stroke-width="1" />
+  
+  <!-- Eyes -->
+  <circle cx="20" cy="17" r="2" fill="black" />
+  <circle cx="30" cy="17" r="2" fill="black" />
+  
+  <!-- Mouth -->
+  <path d="M22,22
+           Q25,24 28,22"
+        stroke="black" stroke-width="1.5" fill="none" />
+</svg>`;
+    
+    // Determine the winner based on the cow's position (assuming grid positions are related to player squares)
+    let winner = players.find(player => player.square === (cowPosition.y * gridSize + cowPosition.x) % numPlayers);
+
+    // Display the winner's initials in the overlay
+    document.getElementById('status').innerText = winner ? `${winner.initials} Wins!` : 'No winner!';
+
+    // Show the status div
+    document.getElementById('status').style.display = 'block';
 }
 
 function endGame() {
