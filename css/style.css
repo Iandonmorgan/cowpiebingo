@@ -81,7 +81,7 @@ body {
     height: 100vh; /* Take up full viewport height */
     width: 100vw; /* Take up full viewport width */
     position: relative; /* Allows for absolute positioning of the status text */
-    background-color: lightgreen; /* Slightly different background to distinguish game area */
+    background-color: green; /* green background for the game area */
 }
 
 #pasture {
@@ -90,7 +90,6 @@ body {
     max-width: 90vw; /* Maximum width as 90% of the viewport width */
     max-height: 90vh; /* Maximum height as 90% of the viewport height */
     margin: auto; /* Center the SVG within the container */
-    background-color: lightgreen;
 }
 
 /* Pop-up style text */
