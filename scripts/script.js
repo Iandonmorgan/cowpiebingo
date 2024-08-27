@@ -70,66 +70,84 @@ function getRandomMove() {
 }
 
 function drawCow() {
-    document.getElementById('pasture').innerHTML = `<svg width="10" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" style="position: absolute; top: ${cowPosition.y * 10}px; left: ${cowPosition.x * 10}px;">
-  <!-- Cow body -->
-  <ellipse cx="25" cy="30" rx="12" ry="8" fill="white" stroke="black" stroke-width="1.5" />
+    let svgElement = document.getElementById('cow-svg');
+    
+    if (!svgElement) {
+        // If the cow SVG does not exist, create and add it
+        svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svgElement.setAttribute("id", "cow-svg");
+        svgElement.setAttribute("width", "50");
+        svgElement.setAttribute("height", "50");
+        svgElement.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+        document.getElementById('pasture').appendChild(svgElement);
+    }
+    
+    svgElement.setAttribute("style", `position: absolute; top: ${cowPosition.y * 10}px; left: ${cowPosition.x * 10}px;`);
 
-  <!-- Cow head -->
-  <circle cx="25" cy="15" r="6" fill="white" stroke="black" stroke-width="1.5" />
+    svgElement.innerHTML = `
+        <!-- Cow body -->
+        <ellipse cx="25" cy="30" rx="12" ry="8" fill="white" stroke="black" stroke-width="1.5" />
 
-  <!-- Cow ears -->
-  <ellipse cx="18" cy="12" rx="3" ry="2" fill="white" stroke="black" stroke-width="1.5" />
-  <ellipse cx="32" cy="12" rx="3" ry="2" fill="white" stroke="black" stroke-width="1.5" />
+        <!-- Cow head -->
+        <circle cx="25" cy="15" r="6" fill="white" stroke="black" stroke-width="1.5" />
 
-  <!-- Cow eyes -->
-  <circle cx="22" cy="14" r="1" fill="black" />
-  <circle cx="28" cy="14" r="1" fill="black" />
+        <!-- Cow ears -->
+        <ellipse cx="18" cy="12" rx="3" ry="2" fill="white" stroke="black" stroke-width="1.5" />
+        <ellipse cx="32" cy="12" rx="3" ry="2" fill="white" stroke="black" stroke-width="1.5" />
 
-  <!-- Cow nose -->
-  <ellipse cx="25" cy="18" rx="3" ry="1.5" fill="pink" stroke="black" stroke-width="1" />
+        <!-- Cow eyes -->
+        <circle cx="22" cy="14" r="1" fill="black" />
+        <circle cx="28" cy="14" r="1" fill="black" />
 
-  <!-- Cow legs -->
-  <rect x="18" y="38" width="3" height="7" fill="black" />
-  <rect x="29" y="38" width="3" height="7" fill="black" />
-</svg>`;
+        <!-- Cow nose -->
+        <ellipse cx="25" cy="18" rx="3" ry="1.5" fill="pink" stroke="black" stroke-width="1" />
+
+        <!-- Cow legs -->
+        <rect x="18" y="38" width="3" height="7" fill="black" />
+        <rect x="29" y="38" width="3" height="7" fill="black" />
+    `;
 }
 
 function dropCowPie() {
+    // Determine the cow pie size (10% of cow's size)
+    const pieSize = 5;  // Adjust size as needed
+
     // Add cow pie to the pasture
-    document.getElementById('pasture').innerHTML += `<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-  <!-- Poop Emoji Base -->
-  <path d="M25,10
-           C20,10 15,15 15,20
-           C15,25 20,30 25,30
-           C30,30 35,25 35,20
-           C35,15 30,10 25,10
-           Z"
-        fill="brown" stroke="black" stroke-width="1" />
-  
-  <!-- Top Part -->
-  <path d="M25,5
-           C20,5 15,10 15,15
-           C15,20 20,25 25,25
-           C30,25 35,20 35,15
-           C35,10 30,5 25,5
-           Z"
-        fill="saddlebrown" stroke="black" stroke-width="1" />
-  
-  <!-- Eyes -->
-  <circle cx="20" cy="17" r="2" fill="black" />
-  <circle cx="30" cy="17" r="2" fill="black" />
-  
-  <!-- Mouth -->
-  <path d="M22,22
-           Q25,24 28,22"
-        stroke="black" stroke-width="1.5" fill="none" />
-</svg>`;
+    document.getElementById('pasture').innerHTML += `
+        <svg width="${pieSize}" height="${pieSize}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" style="position: absolute; top: ${cowPosition.y * 10 + 40}px; left: ${cowPosition.x * 10 + 25}px;">
+            <!-- Poop Emoji Base -->
+            <path d="M25,10
+                     C20,10 15,15 15,20
+                     C15,25 20,30 25,30
+                     C30,30 35,25 35,20
+                     C35,15 30,10 25,10
+                     Z"
+                  fill="brown" stroke="black" stroke-width="1" />
+        
+            <!-- Top Part -->
+            <path d="M25,5
+                     C20,5 15,10 15,15
+                     C15,20 20,25 25,25
+                     C30,25 35,20 35,15
+                     C35,10 30,5 25,5
+                     Z"
+                  fill="saddlebrown" stroke="black" stroke-width="1" />
+        
+            <!-- Eyes -->
+            <circle cx="20" cy="17" r="1" fill="black" />
+            <circle cx="30" cy="17" r="1" fill="black" />
+        
+            <!-- Mouth -->
+            <path d="M22,22
+                     Q25,24 28,22"
+                  stroke="black" stroke-width="1.5" fill="none" />
+        </svg>`;
     
     // Determine the winner based on the cow's position (assuming grid positions are related to player squares)
     let winner = players.find(player => player.square === (cowPosition.y * gridSize + cowPosition.x) % numPlayers);
 
     // Display the winner's initials in the overlay
-    document.getElementById('status').innerText = winner ? `${winner.initials} Wins!` : 'No winner!';
+    document.getElementById('status').innerText = winner ? `Ohh CRAP - ${winner.initials} Wins!` : 'No winner!';
 
     // Show the status div
     document.getElementById('status').style.display = 'block';
