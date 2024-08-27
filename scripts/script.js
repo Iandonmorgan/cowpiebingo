@@ -82,7 +82,7 @@ function drawCow() {
         document.getElementById('pasture').appendChild(svgElement);
     }
     
-    svgElement.setAttribute("style", `position: absolute; top: ${cowPosition.y * 10}px; left: ${cowPosition.x * 10}px;`);
+    svgElement.setAttribute("style", `position: absolute; top: ${cowPosition.y * 50}px; left: ${cowPosition.x * 50}px;`);
 
     svgElement.innerHTML = `
         <!-- Cow body -->
