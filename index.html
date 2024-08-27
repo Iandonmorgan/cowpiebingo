@@ -9,20 +9,28 @@
     <link rel=”stylesheet” href=”css/style.css”>
 </head>
 <body>
-    <div id="setup">
-        <h1>CattleShit.com presents Cow Pie Bingo</h1>
-        <label for="numPlayers">Number of Players:</label>
-        <input type="number" id="numPlayers" min="1" max="10">
-        <div id="playerNames"></div>
-        <label for="gameTime">Game Time:</label>
-        <select id="gameTime">
-            <option value="5">5 minutes</option>
-            <option value="10">10 minutes</option>
-            <option value="20">20 minutes</option>
-            <option value="60">60 minutes</option>
-            <option value="90">90 minutes</option>
-        </select>
-        <button onclick="startGame()">Start Game</button>
+    <div id="setup" class="landing-container">
+        <h1 class="title">CattleShit.com presents Cow Pie Bingo</h1>
+    
+        <div class="input-group">
+            <label for="numPlayers" class="label">Number of Players:</label>
+            <input type="number" id="numPlayers" class="input-field" min="1" max="10">
+        </div>
+    
+        <div id="playerNames" class="input-group"></div>
+    
+        <div class="input-group">
+            <label for="gameTime" class="label">Game Time:</label>
+            <select id="gameTime" class="select-field">
+                <option value="5">5 minutes</option>
+                <option value="10">10 minutes</option>
+                <option value="20">20 minutes</option>
+                <option value="60">60 minutes</option>
+                <option value="90">90 minutes</option>
+            </select>
+        </div>
+
+        <button class="start-button" onclick="startGame()">Start Game</button>
     </div>
     <div id="game" style="display: none;">
         <svg id="pasture" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
