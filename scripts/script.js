@@ -76,8 +76,8 @@ function drawCow() {
         // If the cow SVG does not exist, create and add it
         svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svgElement.setAttribute("id", "cow-svg");
-        svgElement.setAttribute("width", "10");
-        svgElement.setAttribute("height", "10");
+        svgElement.setAttribute("width", "30");
+        svgElement.setAttribute("height", "30");
         svgElement.setAttribute("xmlns", "http://www.w3.org/2000/svg");
         document.getElementById('pasture').appendChild(svgElement);
     }
