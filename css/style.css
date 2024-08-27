@@ -1,0 +1,44 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #8B4513;
+    color: #FFFFFF;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#setup, #game {
+    margin: 20px;
+}
+
+input, select {
+    margin: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #555555;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #777777;
+}
+
+svg {
+    width: 100%;
+    height: auto;
+}
+
+#pasture {
+    background: #9ACD32;
+    border: 2px solid #8B4513;
+}
+
+#status {
+    font-size: 20px;
+    margin-top: 20px;
+}
