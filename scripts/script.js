@@ -76,14 +76,13 @@ function drawCow() {
         // If the cow SVG does not exist, create and add it
         svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svgElement.setAttribute("id", "cow-svg");
-        svgElement.setAttribute("width", "30");
-        svgElement.setAttribute("height", "30");
+        svgElement.setAttribute("width", "50");
+        svgElement.setAttribute("height", "50");
         svgElement.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+        svgElement.setAttribute("style", `position: absolute; top: ${cowPosition.y * 50}px; left: ${cowPosition.x * 50}px;`);
         document.getElementById('pasture').appendChild(svgElement);
     }
     
-    svgElement.setAttribute("style", `position: absolute; top: ${cowPosition.y * 50}px; left: ${cowPosition.x * 50}px;`);
-
     svgElement.innerHTML = `
         <!-- Cow body -->
         <ellipse cx="25" cy="30" rx="12" ry="8" fill="white" stroke="black" stroke-width="1.5" />
@@ -106,15 +105,16 @@ function drawCow() {
         <rect x="18" y="38" width="3" height="7" fill="black" />
         <rect x="29" y="38" width="3" height="7" fill="black" />
     `;
+    
+    svgElement.setAttribute("style", `position: absolute; top: ${cowPosition.y * 50}px; left: ${cowPosition.x * 50}px;`);
 }
 
 function dropCowPie() {
-    // Determine the cow pie size (10% of cow's size)
     const pieSize = 5;  // Adjust size as needed
 
     // Add cow pie to the pasture
     document.getElementById('pasture').innerHTML += `
-        <svg width="${pieSize}" height="${pieSize}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" style="position: absolute; top: ${cowPosition.y * 10 + 40}px; left: ${cowPosition.x * 10 + 25}px;">
+        <svg width="${pieSize}" height="${pieSize}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" style="position: absolute; top: ${cowPosition.y * 50 + 40}px; left: ${cowPosition.x * 50 + 25}px;">
             <!-- Poop Emoji Base -->
             <path d="M25,10
                      C20,10 15,15 15,20
@@ -143,7 +143,7 @@ function dropCowPie() {
                   stroke="black" stroke-width="1.5" fill="none" />
         </svg>`;
     
-    // Determine the winner based on the cow's position (assuming grid positions are related to player squares)
+    // Determine the winner based on the cow's position
     let winner = players.find(player => player.square === (cowPosition.y * gridSize + cowPosition.x) % numPlayers);
 
     // Display the winner's initials in the overlay
