@@ -107,7 +107,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 3rem; /* Large font size for pop-up effect */
+    font-size: 1.5rem; /* Large font size for pop-up effect */
     color: white;
     background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
     padding: 20px;

@@ -110,7 +110,7 @@ function drawCow() {
 }
 
 function dropCowPie() {
-    const pieSize = 5;  // Adjust size as needed
+    const pieSize = 20;  // Adjust size as needed
 
     // Add cow pie to the pasture
     document.getElementById('pasture').innerHTML += `
