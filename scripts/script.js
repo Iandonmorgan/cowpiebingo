@@ -147,12 +147,12 @@ function dropCowPie() {
     let winner = players.find(player => player.square === (cowPosition.y * gridSize + cowPosition.x) % numPlayers);
 
     // Display the winner's name in the overlay
-    document.getElementById('status').innerText = winner ? `Ohh CRAP - ${winner.playerName} Wins!` : 'No winner!';
+    document.getElementById('status').innerHTML = winner ? `Ohh CRAP - ${winner.playerName} Wins!<br><a href="https://iandonmorgan.github.io>PLAY AGAIN</a>` : 'No winner!';
 
     // Show the status div
     document.getElementById('status').style.display = 'block';
 }
 
 function endGame() {
-    document.getElementById('status').innerText = 'Game over! No pie dropped.';
+    document.getElementById('status').innerHTML = 'Game over! No pie dropped.';
 }
