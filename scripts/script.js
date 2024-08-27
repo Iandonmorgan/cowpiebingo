@@ -76,10 +76,10 @@ function drawCow() {
         // If the cow SVG does not exist, create and add it
         svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svgElement.setAttribute("id", "cow-svg");
-        svgElement.setAttribute("width", "100px");
-        svgElement.setAttribute("height", "100px");
+        svgElement.setAttribute("width", "50px"); // Adjust the width
+        svgElement.setAttribute("height", "50px"); // Adjust the height
         svgElement.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-        svgElement.setAttribute("style", `position: absolute; top: ${cowPosition.y * 100}px; left: ${cowPosition.x * 100}px;`);
+        svgElement.setAttribute("style", `position: absolute; top: ${cowPosition.y * 50}px; left: ${cowPosition.x * 50}px;`); // Adjust size accordingly
         document.getElementById('pasture').appendChild(svgElement);
     }
     
@@ -106,7 +106,7 @@ function drawCow() {
         <rect x="29" y="38" width="3" height="7" fill="black" />
     `;
     
-    svgElement.setAttribute("style", `position: absolute; top: ${cowPosition.y * 100}px; left: ${cowPosition.x * 100}px;`);
+    svgElement.setAttribute("style", `position: absolute; top: ${Math.min(cowPosition.y * 50, window.innerHeight - 50)}px; left: ${Math.min(cowPosition.x * 50, window.innerWidth - 50)}px;`);
 }
 
 function dropCowPie() {
