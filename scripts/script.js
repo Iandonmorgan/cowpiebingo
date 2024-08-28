@@ -20,6 +20,8 @@ function startGame() {
     startCountdown(maxTime); // Start the countdown timer
 
     initiateCowMovement();
+
+    window.scrollTo(0, 0);
 }
 
 function startCountdown(time) {
@@ -179,5 +181,5 @@ function dropCowPie() {
 }
 
 function endGame() {
-    document.getElementById('status').innerHTML = 'Game over! No pie dropped.';
+    document.getElementById('status').innerHTML = `Congrats ${winner.playerName}!<br><a href="https://iandonmorgan.github.io>PLAY AGAIN</a>`;
 }
